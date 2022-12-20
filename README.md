@@ -1,8 +1,14 @@
-Build:
-docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) --tag alireaza/gedit:$(date -u +%Y%m%d) --tag alireaza/gedit .
+# GNOME Editor
 
-Run:
-docker run \
+## Build
+Via GitHub repository
+```bash
+$ docker build --tag alireaza/gedit:$(date -u +%Y%m%d) --tag alireaza/gedit:latest https://github.com/alireaza/gedit.git
+```
+
+## Run
+```bash
+$ docker run \
 --interactive \
 --tty \
 --rm \
@@ -14,3 +20,5 @@ docker run \
 --mount="type=bind,source=$(pwd)/udocker,target=/home/udocker" \
 --name="gedit" \
 alireaza/gedit
+```
+
